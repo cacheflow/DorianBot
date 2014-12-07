@@ -1,0 +1,29 @@
+require "Twitter"
+require "treat"
+include Treat::Core::DSL
+## So right here we're passing our twitter 
+## credentials as a block and saving it in 
+## client variable 
+	client = Twitter::REST::Client.new do |config|
+	config.consumer_key = ENV["TWITTER_KEY"]
+	config.consumer_secret = ENV["TWITTER_SECRET"]
+	config.access_token = ENV["TWITTER_TOKEN"]
+	config.access_token_secret = ENV["TWITTER_TOKEN_SECRET"]
+end 
+	story = document("lexBot/example.txt")
+	story.apply(:chunk, :segment, :tokenize)
+		tweetables = story.sentences 
+		tweetables.sample.each do |sen| 
+			unless 
+				 sen.to_s.length >= 140
+				 puts sen.split.(",").join(" ")
+			end 
+
+
+
+
+
+	end 
+
+
+ 	
