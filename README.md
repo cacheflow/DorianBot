@@ -1,1 +1,1 @@
-A twitter bot using NLP to send tweets.
+Inspired by my friend & former classmate Christa Harstock who created a similar bot in Python. I created a Ruby bot using NLP that finds a sentence that is less than or equal to 140 chracters and tweets it. 
