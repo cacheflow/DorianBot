@@ -1,3 +1,5 @@
+![Oscar](lexalexander10.github.com/lexbot/wilde.jpg)
+
 Inspired by my friend & former classmate Christa Harstock who created a similar bot in Python. I created mine in Ruby using an NLP library that finds a sentence that is less than or equal to 140 chracters and tweets it. 
 
 Steps to install 
