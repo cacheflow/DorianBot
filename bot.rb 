@@ -12,18 +12,12 @@ include Treat::Core::DSL
 end 
 	story = document("lexBot/example.txt")
 	story.apply(:chunk, :segment, :tokenize)
-		tweetables = story.sentences 
-		tweetables.sample.each do |sen| 
-			unless 
-				 sen.to_s.length >= 140
-				 puts sen.split.(",").join(" ")
+	tweetables = Array(story.sentences.sample.to_s)
+		tweetables.each do |sen| 
+			unless sen.length >= 140 
+				puts client.update(sen) 
 			end 
-
-
-
-
-
 	end 
-
+	 
 
  	
