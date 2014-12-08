@@ -12,7 +12,7 @@ include Treat::Core::DSL
 		config.access_token_secret = ENV["TWITTER_TOKEN_SECRET"]
 	end 
 
-	story = document("lexbot/example.txt")
+	story = document("example.txt")
 	story.apply(:chunk, :segment, :tokenize)
 	tweetables = Array(story.sentences.sample.to_s)
 		tweetables.each do |sen| 
