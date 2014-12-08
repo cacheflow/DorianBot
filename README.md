@@ -1,4 +1,4 @@
-![](http://github.com/lexalexander10/lexbot/wilde.jpg)
+![](http://images.fineartamerica.com/images-medium-large-5/oscar-wilde-june-ponte.jpg)
 
 
 Inspired by my friend & former classmate Christa Harstock who created a similar bot in Python. I created mine in Ruby using an NLP library that finds a sentence that is less than or equal to 140 chracters and tweets it. 
