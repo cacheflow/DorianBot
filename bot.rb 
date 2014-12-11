@@ -19,7 +19,7 @@ include Treat::Core::DSL
 		##Now that we have the story object we parse through it and 
 		##segmenting it into titles, paragraphs, and sentences. 
 			tweetables = Array(story.sentences.sample.to_s)
-			##Right here we're staking the story.sentences object
+			##Right here we're taking the story.sentences object
 			## and coverting that into a random string and storing 
 			##that in an array again so it will be held together. 
 			## Last time when I didn't store it in array it would
@@ -37,7 +37,7 @@ include Treat::Core::DSL
 									|past_tweets| 
 										if past_tweets != sen 
 											puts client.update(sen) 
-										break 
+											break 
 										end 				
 								end 
 						end 
