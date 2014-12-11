@@ -16,10 +16,16 @@ include Treat::Core::DSL
 		story.apply(:chunk, :segment, :tokenize)
 		tweetables = Array(story.sentences.sample.to_s)
 				tweetables.each do |sen| 
-					unless sen.length >= 140 
-						puts client.update(sen) 
-				end 
+					if sen.length <= 140
+							client.home_timeline.each do 
+							|past_tweets| 
+								if past_tweets != sen 
+									puts client.update(sen) 
+									break 
+					end 				
+							end 
 		end 
+	end
 
 	
 	 
