@@ -13,13 +13,13 @@ include Treat::Core::DSL
 	end 
 
 	story = document("example.txt")
-	story.apply(:chunk, :segment, :tokenize)
-	tweetables = Array(story.sentences.sample.to_s)
-		tweetables.each do |sen| 
-			unless sen.length >= 140 
-				puts client.update(sen) 
-			end 
-	end 
+		story.apply(:chunk, :segment, :tokenize)
+		tweetables = Array(story.sentences.sample.to_s)
+				tweetables.each do |sen| 
+					unless sen.length >= 140 
+						puts client.update(sen) 
+				end 
+		end 
 
 	
 	 
