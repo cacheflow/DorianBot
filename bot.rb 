@@ -16,34 +16,33 @@ include Treat::Core::DSL
 	##Right here we're storing the book in a document object, 
 	##so it can be parsed
 		story.apply(:chunk, :segment, :tokenize)
-		##Now that we have the story object we parse through it and 
-		##segmenting it into titles, paragraphs, and sentences. 
-			tweetables = Array(story.sentences.sample.to_s)
-			##Right here we're taking the story.sentences object
-			## and coverting that into a random string and storing 
-			##that in an array again so it will be held together. 
-			## Last time when I didn't store it in array it would
-			## output the words separately. 
-					tweetables.each do |sen| 
-						## Now we loop through the array of random 
-						## sentences 
-						unless sen.length >= 140
-						##if the sentences are less than 140
-						## loop through the twitter timeline of 
-						## tweets and see if I've tweeted that 
-						## before. If not then tweet out a random
-						## sentence
-								client.home_timeline.each do 
-									|past_tweets| 
-										if past_tweets != sen 
-											puts client.update(sen) 
-											break 
-										end 				
-								end 
-						end 
-		end
+	##Now that we have the story object we parse through it and 
+	##segmenting it into titles, paragraphs, and sentences. 
+		tweetables = Array(story.sentences.sample.to_s)
+	##Right here we're taking the story.sentences object
+	## and coverting that into a random string and storing 
+	##that in an array again so it will be held together. 
+	## Last time when I didn't store it in array it would
+	## output the words separately. 
+		tweetables.each do |sen| 
+	## Now we loop through the array of random 
+	## sentences 
+		unless sen.length >= 140
+	##if the sentences are less than 140
+	## loop through the twitter timeline of 
+	## tweets and see if I've tweeted that 
+	## before. If not then tweet out a random
+	## sentence
+			client.home_timeline.each do |past_tweets| 
+				if past_tweets != sen 
+					puts client.update(sen) 
+						break 
+				end 				
+			end 
+		end 
+	end
 
-	
+
 	 
 
  	
