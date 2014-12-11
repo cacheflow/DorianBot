@@ -14,18 +14,18 @@ include Treat::Core::DSL
 
 	story = document("example.txt")
 		story.apply(:chunk, :segment, :tokenize)
-		tweetables = Array(story.sentences.sample.to_s)
-				tweetables.each do |sen| 
-					if sen.length <= 140
-							client.home_timeline.each do 
-							|past_tweets| 
-								if past_tweets != sen 
-									puts client.update(sen) 
-									break 
-					end 				
-							end 
-		end 
-	end
+			tweetables = Array(story.sentences.sample.to_s)
+					tweetables.each do |sen| 
+						unless sen.length >= 140
+								client.home_timeline.each do 
+									|past_tweets| 
+										if past_tweets != sen 
+											puts client.update(sen) 
+										break 
+										end 				
+								end 
+						end 
+		end
 
 	
 	 
