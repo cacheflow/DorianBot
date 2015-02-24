@@ -1,5 +1,5 @@
 require "Twitter"
-require "treat"
+require "Treat"
 include Treat::Core::DSL
 
 	## So right here we're passing our twitter 
@@ -22,21 +22,22 @@ include Treat::Core::DSL
 	##Right here we're taking the story.sentences object
 	## and coverting that into a random string and storing 
 	##that in an array again so it will be held together. 
-	tweetables.each do |sen| 
+	tweetables.each do |random_sentences| 
 		## Now we loop through the array of random 
 		## sentences 
-		unless sen.length >= 140
+		unless random_sentences.length >= 140
 		##if the sentences are less than 140
 		## loop through the twitter timeline of 
 		## tweets and see if matches an old tweet.
 			client.home_timeline.each do |past_tweets| 
-				if past_tweets != sen 
-				puts client.update(sen) 
-				break 
+				if !past_tweets == random_sentences 
+					puts client.update(random_sentences) 
+					break 
 				end 				
 			end 
-		end 
-	end
+		end 	
+	end 
+	
 
 
 		 
